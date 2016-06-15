@@ -1,103 +1,100 @@
-<?php 
-if($current_url == 'principal'){ $active_panel = 'active_nav'; } else { $active_panel = ''; }
-if($current_url == 'usuarios'){ $active_user = 'active_nav'; } else { $active_user = ''; }
-if($current_url == 'administracion'){ $active_admin = 'active_nav'; } else { $active_admin = ''; }
-if($current_url == 'diseno'){ $active_design = 'active_nav'; } else { $active_design = ''; }
-?>
-
-<script>
-$(document).ready(function(){
-
-    var current_url = '<?= $current_url?>';
-    if(current_url == 'administracion'){
-        $('#administracion').slideDown();
-    }
-
-    if(current_url == 'diseno'){
-        $('#diseno').slideDown();
-    }
-
-    if(current_url == 'cotizaciones'){
-        $('#cotizaciones').slideDown();
-    }
-
-});
-</script>
+<div>
 
 
-<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" id="admin_left">
-    <nav>
-        <ul id="admin_nav">
-            
-            <!-- LINK PANEL DE CONTROL -->
-            <li>
-                <a href="<?= base_url();?>principal" class="<?= $active_panel;?>"><i class="fa fa-cogs"></i> Panel de control 
-                </a>
-            </li>
-            <!-- LINK PANEL DE CONTROL -->
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="nav-menu-left">
+    
+        <ul class="collapsible" data-collapsible="expandable">
 
+          <li class="">
+            <div class="collapsible-header">
+              <div class="chip">
+                <img src="<?= base_url().IMAGES_PATH.$this->session->avatar;?>" alt="Contact Person">
+                <?= $this->session->usuario;?>
+              </div>
+            </div>
+          </li>
 
-            <!-- LINK ADMINISTRACION -->
-            <li>
-                <a href="" class="administracion <?= $active_admin;?>">
-                    <i class="fa fa-bar-chart"></i> Administración 
-                        <i class="fa fa-angle-right pull-right"></i>
-                </a>
-            </li>
-            <div id="administracion">
-                <ul class="inside_nav">
-                    <li><a href="<?= base_url();?>catalogos">Catálogos</a></li>
-                    <li><a href="<?= base_url();?>categorias" id="c_admin">Categorías</a></li>
-                    <li><a href="<?= base_url();?>subcategorias" id="subcategorias">Subcategorías</a></li>
-                    <li><a href="<?= base_url();?>productos">Productos</a></li>
-
-                    <?php if($this->session->perfil == 'Administrador'){ ?>
-                        <li><a href="<?= base_url();?>empresas">Empresas</a></li>
-                        <li><a href="<?= base_url();?>clientes">Cuentas por empresas</a></li>
-                        <li><a href="<?= base_url();?>precios">Precios por empresas</a></li>
-                    <?php } ?>
-
-                    <li><a href="<?= base_url();?>marcas">Marcas</a></li>
-
+          <li class="">
+            <div class="collapsible-header <?= $this->functions->printActiveClassNav('usuarios');?>"><i class="material-icons">settings</i>Administración</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a id="usuarios" href="<?= base_url();?>usuarios">Usuarios</a></li>
+                    <li><a id="clientes" href="">Clientes</a></li>
                 </ul>
             </div>
-            <!-- LINK ADMINISTRACION -->
+          </li>
 
 
-            <!-- LINK USUARIOS -->
-            <?php if($this->session->perfil == 'Administrador'){ ?>
-                <li><a href="<?= base_url();?>usuarios" class="<?= $active_user;?>"><i class="fa fa-users"></i> Usuarios</a></li>
-            <?php } ?>
-            <!-- LINK USUARIOS -->
-
-
-            <!-- LINK DISEÑO DEL SITIO -->
-            <li><a href="" class="diseno <?= $active_design;?>"><i class="fa fa-code"></i> Diseño del sitio <i class="fa fa-angle-right pull-right"></i></a></li>
-            <div id="diseno">
-                <ul class="inside_nav">
-                    <li><a href="<?= base_url();?>cabecera">Cabecera</a></li>
-                    <li><a href="<?= base_url();?>slide">Slide (Banner principal)</a></li>
-                    <li><a href="<?= base_url();?>nosotros">Sobre Nosotros</a></li>
-                    <li><a href="<?= base_url();?>datos">Datos Empresa</a></li>
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">credit_card</i>Cotizaciones</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
                 </ul>
             </div>
-            <!-- LINK DISEÑO DEL SITIO -->
+          </li>
 
 
-
-            <!-- LINK COTIZACIONES -->
-            <?php if($this->session->perfil == 'Administrador'){ ?>
-            <li><a href="<?= base_url();?>cotizaciones" class="cotizaciones"><i class="fa fa-users"></i> Cotizaciones <i class="fa fa-angle-right pull-right"></i></a></li>
-            <div id="cotizaciones">
-                <ul class="inside_nav">
-                    <li><a href="<?= base_url();?>cotizaciones">Revisar Cotizaciones</a></li>
-                    <li><a href="<?= base_url();?>graficos">Gráficos</a></li>
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">work</i>Stock Vehículos</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
                 </ul>
             </div>
-            <?php } ?>
-            <!-- LINK COTIZACIONES -->
+          </li>
 
-            <li><a href=""><i class="fa fa-eye"></i> Ver sitio web</a></li>
+
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">contact_phone</i>Clientes | Empresas</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
+                </ul>
+            </div>
+          </li>
+
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">credit_card</i>Créditos Internos</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
+                </ul>
+            </div>
+          </li>
+
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Seguimiento Semanal</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
+                </ul>
+            </div>
+          </li>
+
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">perm_data_setting</i>Gerencia</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
+                </ul>
+            </div>
+          </li>
+
+          <li class="">
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Administración</div>
+            <div class="collapsible-body" style="display: none; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <ul>
+                    <li><a href="">Usuarios</a></li>
+                    <li><a href="">Clientes</a></li>
+                </ul>
+            </div>
+          </li>
         </ul>
-    </nav>
-</div>
+    </div>

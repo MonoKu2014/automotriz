@@ -1,2 +1,0 @@
-# automotriz
-SCSA 
