@@ -53,7 +53,7 @@
         </div>
         <div class="row">
           <div class="input-field col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p class="margin medium-small"><a href="register.html">Registrate!</a></p>
+            <p class="margin medium-small"><a href="register">Registrate!</a></p>
           </div>
           <div class="input-field col-xs-6 col-sm-6 col-md-6 col-lg-6">
               <p class="margin right-align medium-small"><a href="forgot-password">Olvidó su contraseña?</a></p>

@@ -5242,16 +5242,16 @@ a.waves-effect .waves-ripple {
 }
 
 .modal .modal-footer {
-  border-radius: 0 0 2px 2px;
-  background-color: #fafafa;
-  padding: 4px 6px;
-  height: 56px;
-  width: 100%;
+    border-radius: 0 0 2px 2px;
+    background-color: #fafafa;
+    padding: 12px 14px;
+    height: 70px;
+    width: 100%;
 }
 
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat {
   float: right;
-  margin: 6px 0;
+  margin: 6px;
 }
 
 .lean-overlay {

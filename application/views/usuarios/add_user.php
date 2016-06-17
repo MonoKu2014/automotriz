@@ -1,27 +1,24 @@
-<form class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="add_register" method="post" action="<?= base_url();?>usuarios/registrar" enctype="multipart/form-data">
-        <div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-          <div id="content_message">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card-panel red lighten-1 white-text alerta_error"><strong>Atencion!</strong><br>Hay errores en el formulario</div>
-          </div>
+  <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 teal lighten-2 white-text main-alert" ng-show="success">{{success}}</span>
+  <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 red lighten-1 white-text main-alert" ng-show="error">{{error}}</span>
 
-          <div class="input-field col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <input id="nombre" name="nombre" type="text" placeholder="Ingrese el nombre completo">
+          <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <input id="nombre" type="text" placeholder="Ingrese el nombre completo" ng-model="user.nombre">
             <label for="nombre">Nombre(*)</label>
           </div>
-          <div class="input-field col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <input id="rut" type="text" name="rut" placeholder="Ingrese el rut sin puntos ni guíon">
+          <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <input id="rut" type="text" name="rut" placeholder="Ingrese el rut sin puntos ni guíon" ng-model="user.rut">
             <label for="rut">Rut(*)</label>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="input-field col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <input id="email" type="text" name="email" placeholder="Ingrese email (ejemplo@ejemplo.cl)">
+          <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <input id="email" type="text" name="email" placeholder="Ingrese email (ejemplo@ejemplo.cl)" ng-model="user.email">
             <label for="email">Email(*)</label>
           </div>
-          <div class="input-field col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <select name="perfil" id="perfil">
+
+          <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <select name="perfil" id="perfil" ng-model="user.perfil">
               <option value="">Seleccione el perfil...</option>
               <option value="1">Administrador</option>
               <option value="2">Jefe de Sector</option>
@@ -30,33 +27,17 @@
             </select>
             <label for="area">Perfil(*)</label>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="input-field col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="file-field input-field">
-              <div class="small btn">
-                <span><i class="material-icons">image</i> Avatar</span>
-                <input type="file" name="archivo">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Subir avatar del nuevo usuario">
-              </div>
-            </div>
-          </div>
-          <div class="input-field col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
           Seleccione el estado del usuario(*)<br>
-            <input name="estado" type="radio" checked><label for="activo">Activo</label>
-            <input name="estado" type="radio"><label for="inactivo">Inactivo</label>
+            <p>
+              <input name="group1" type="radio" value="1" id="test1" ng-model="user.estado">
+              <label for="test1">Activo</label>
+            </p>
+            <p>
+              <input name="group1" type="radio" value="0" id="test2" ng-model="user.estado">
+              <label for="test2">Inactivo</label>
+            </p>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <input type="submit" class="btn" id="add_user_button" value="Guardar Usuario">
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <button class="btn red lighten-1" id="button_cancel_user">Cancelar</button>
-          </div>
-        </div>
-      </form>
+</div>

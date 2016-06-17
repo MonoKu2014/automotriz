@@ -34,35 +34,23 @@ class Usuarios extends CI_Controller {
     public function registrar()
     {
 
-        $this->form_validation->set_rules('nombre', 'Nombre', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('rut', 'Rut', 'required');
-        $this->form_validation->set_rules('perfil', 'Perfil', 'required');
-        $this->form_validation->set_rules('estado', 'Estado', 'required');
-
-        if($this->form_validation->run() === FALSE){
-            $this->session->set_flashdata('mensaje', '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card-panel red lighten-1 white-text alerta_error"><strong>Atencion!</strong><br>Hay errores en el formulario</div>');
-            redirect(base_url().'usuarios');
-        } 
+        $data = json_decode(file_get_contents("php://input"));
 
         $data = array(
-                'nombre_usuario'    => $_POST['nombre'],
-                'rut_usuario'       => $_POST['rut'],
-                'email_usuario'     => $_POST['email'],
-                'password_usuario'  => $_POST['password'],
-                'id_perfil'         => $_POST['perfil'],
-                'avatar_usuario'    => $_FILES['archivo']['name'],
-                'estado_usuario'    => $_POST['estado']
+                'nombre_usuario'    => $data->nombre,
+                'rut_usuario'       => $data->rut,
+                'email_usuario'     => $data->email,
+                'password_usuario'  => $data->rut,
+                'id_perfil'         => $data->perfil,
+                'estado_usuario'    => $data->estado
                 
         );
 
         $result = $this->users->insertUser($data);
         if($result === true){
-          $this->session->set_flashdata('mensaje', '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card-panel teal white-text alerta"><strong>Éxito!</strong><br>Su registro ha sido creado</div>');
-          redirect(base_url().'usuarios');          
+            echo json_encode(array('code' => 1, 'message' => 'Su registro ha sido agregado correctamente'));
         } else {
-          $this->session->set_flashdata('mensaje', '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card-panel red lighten-1 white-text alerta_error"><strong>Atencion!</strong><br>Su registro no ha sido creado</div>');  
-          redirect(base_url().'usuarios');
+            echo json_encode(array('code' => 0, 'message' => 'Hubo un error en el registro, intente otra vez'));
         }
 
     }

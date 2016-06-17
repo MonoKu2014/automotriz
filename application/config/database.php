@@ -100,6 +100,7 @@ $db['default'] = array(
 $db['local'] = array(
 'dsn'	=> '',
 'hostname' => 'localhost',
+'port'     => '3306',
 'username' => 'bluemon1_user',
 'password' => 'bluemon1_2016$$',
 'database' => 'bluemon1_automotora',

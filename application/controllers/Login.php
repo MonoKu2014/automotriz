@@ -22,7 +22,6 @@ class Login extends CI_Controller {
                 'usuario'    => $acceso[0]->nombre_usuario, 
                 'email'      => $acceso[0]->email_usuario,
                 'perfil'     => $acceso[0]->perfil_usuario,
-                'avatar'     => $acceso[0]->avatar_usuario,
                 'area'       => $_POST['area'],
                 'logged_in'  => TRUE 
             );
