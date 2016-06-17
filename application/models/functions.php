@@ -54,9 +54,7 @@ class Functions extends CI_Model {
 
             $value = trim($value);
             
-            if (get_magic_quotes_gpc()) {
-                $value = stripslashes($value);
-            }
+            if (get_magic_quotes_gpc()) { $value = stripslashes($value); }
 
             $value = strtr($value, array_flip(get_html_translation_table(HTML_ENTITIES)));
             $value = strip_tags($value);
@@ -64,6 +62,29 @@ class Functions extends CI_Model {
             $value = htmlspecialchars($value);
             return $value;
 
+        }
+
+
+
+        public function validateRut($rut)
+        {
+        
+            if (!preg_match("/^[0-9]+-[0-9kK]{1}/", $rut)) return false;
+                $partes = explode('-', $rut);
+                return strtolower($partes[1]) == Functions::dv($partes[0]);
+        
+        }
+
+
+        static function dv($dv)
+        {
+        
+            $m = 0;
+            $s = 1;
+            for(;$dv;$dv=floor($dv/10))
+                $s=($s+$dv%10*(9-$m++%6))%11;
+            return $s?$s-1:'k';
+        
         }
 
 
