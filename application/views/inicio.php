@@ -16,9 +16,9 @@
       <form class="login-form" method="post" action="<?= base_url();?>login">
         <!--<div class="row">
           <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
-            <img src="<?=//base_url().IMAGES_PATH;?>logo.jpg" alt="" class="responsive-img valign profile-image-login">
+            <img src="<?=base_url().IMAGES_PATH;?>logo.jpg" alt="" class="responsive-img valign profile-image-login">
             <h5 class="center login-form-text">Sistema de Control de Stock Automotriz</h5>
-            <?= //$this->session->flashdata('mensaje');?>
+            <?= $this->session->flashdata('mensaje');?>
           </div>
         </div>-->
         <div class="row margin">
