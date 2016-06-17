@@ -18,16 +18,23 @@ class Login extends CI_Controller {
             redirect(base_url());
         } else {
             $newdata = array(
-                'id_cliente' => $acceso[0]->id_usuario, 
-                'usuario'    => $acceso[0]->nombre_usuario, 
+                'id_cliente' => $acceso[0]->id_usuario,
+                'usuario'    => $acceso[0]->nombre_usuario,
                 'email'      => $acceso[0]->email_usuario,
                 'perfil'     => $acceso[0]->perfil_usuario,
                 'area'       => $_POST['area'],
-                'logged_in'  => TRUE 
+                'logged_in'  => true
             );
             $this->session->set_userdata($newdata);
             redirect(base_url().'main');
         }
     }
+
+    public function cerrar_sesion()
+    {
+        $this->session->sess_destroy();
+         redirect(base_url());
+    }
+
 
 }

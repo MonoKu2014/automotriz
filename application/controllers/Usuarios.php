@@ -6,6 +6,8 @@ class Usuarios extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
+            if(is_logged_in() === false)
+                redirect(base_url());
             $this->load->model('users', 'users');
             $this->load->library('form_validation');
     }
@@ -43,7 +45,7 @@ class Usuarios extends CI_Controller {
                 'password_usuario'  => $data->rut,
                 'id_perfil'         => $data->perfil,
                 'estado_usuario'    => $data->estado
-                
+
         );
 
         $result = $this->users->insertUser($data);

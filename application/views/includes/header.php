@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión">
+                    <a class="tooltipped" href="<?=base_url();?>login/cerrar_sesion" data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión">
                         <i class="material-icons">power_settings_new</i>
                     </a>
                 </li>
