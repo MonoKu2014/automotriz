@@ -6,8 +6,6 @@ class Usuarios extends CI_Controller {
     public function __construct()
     {
             parent::__construct();
-            if(is_logged_in() === false)
-                redirect(base_url());
             $this->load->model('users', 'users');
             $this->load->library('form_validation');
     }
@@ -44,8 +42,7 @@ class Usuarios extends CI_Controller {
                 'email_usuario'     => $data->email,
                 'password_usuario'  => $data->rut,
                 'id_perfil'         => $data->perfil,
-                'estado_usuario'    => $data->estado
-
+                'estado_usuario'    => $data->estado                
         );
 
         $result = $this->users->insertUser($data);
@@ -56,4 +53,36 @@ class Usuarios extends CI_Controller {
         }
 
     }
+
+
+    public function userWithId($id)
+    {
+        echo json_encode($this->users->getUserWithId($id));
+    }
+
+    public function editar(){
+
+        $data = json_decode(file_get_contents("php://input"));
+
+        $id = $data->id_usuario;
+
+        $data = array(
+                'nombre_usuario'    => $data->nombre,
+                'rut_usuario'       => $data->rut,
+                'email_usuario'     => $data->email,
+                'password_usuario'  => $data->rut,
+                'id_perfil'         => $data->perfil,
+                'estado_usuario'    => $data->estado                
+        );
+
+        $result = $this->users->updateUser($data, $id);
+        if($result === true){
+            echo json_encode(array('code' => 1, 'message' => 'Su registro ha sido editado correctamente'));
+        } else {
+            echo json_encode(array('code' => 0, 'message' => 'Hubo un error al editar el registro, intente otra vez'));
+        }
+
+    }
+
+
 }

@@ -23,7 +23,7 @@
     <header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <nav class="blue darken-3">
             <div class="nav-wrapper">
-              <a href="<?= base_url()?>main" class="brand-logo">&nbsp;SCSA | <?= $this->session->area;?></a>
+              <!--<a href="<?= base_url()?>main" class="brand-logo">&nbsp;SCSA | <?= $this->session->area;?></a>-->
               <ul class="right hide-on-med-and-down">
                 <li>Bienvenido(a) <?= $this->session->usuario;?></li>
                 <li>

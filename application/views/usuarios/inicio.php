@@ -29,8 +29,8 @@
             <td>{{u.nombre_perfil}}</td>
             <td>{{u.estado_usuario}}</td>
             <td>
-              <a class="btn-floating blue darken-3" onclick="$('#editUserModal').openModal();"><i class="material-icons">mode_edit</i></a>
-              <a class="btn-floating red lighten-1" onclick="$('#deleteUserModal').openModal();"><i class="material-icons">delete</i></a>              
+              <a class="btn-floating blue darken-3 edit_user" ng-click="openEditUser(u.id_usuario)"><i class="material-icons">mode_edit</i></a>
+              <a class="btn-floating red lighten-1 delete_user" data-id="{{u.id_usuario}}"><i class="material-icons">delete</i></a>              
             </td>
           </tr>
         </tbody>
@@ -53,8 +53,8 @@
         </div>
 
         <div id="editUserModal" class="modal modal-fixed-footer">
-          <div class="modal-content">
-            <h4>Editar Usuario</h4>
+          <div class="modal-content" ng-repeat="u in usuario">
+            <h4>Editar Usuario <span class="teal-text">{{u.nombre_usuario}}</span></h4>
             <p>Los campos marcados con (*) son de caracter obligatorio</p>
             <?php $this->load->view('usuarios/edit_user');?>
           </div>
@@ -63,6 +63,8 @@
             <button class="btn" ng-click="submitEditForm()">Editar</button>            
           </div>
         </div>
+
+
 
         <div id="deleteUserModal" class="modal">
           <div class="modal-content">
@@ -86,7 +88,16 @@
       $('#addUserModal').openModal();
     });
 
+
+    /*$(document).on('click', '.edit_user', function(){
+        $('#id_usuario').val($(this).attr('data-id'));
+        $('#nombre_usuario').text($(this).attr('data-name'))
+        $('#editUserModal').openModal();
+    });*/
+
+
   });
+
 </script>
 
 </div>

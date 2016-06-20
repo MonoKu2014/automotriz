@@ -30,15 +30,14 @@
             <div class="collapsible-header"><i class="material-icons">work</i>Stock Vehículos</div>
             <div class="collapsible-body">
                 <ul>
-                    <li><a href="">Usuarios</a></li>
-                    <li><a href="">Clientes</a></li>
+                    <li><a href="">Ingresar Vehículos</a></li>
                 </ul>
             </div>
           </li>
 
 
           <li class="">
-            <div class="collapsible-header"><i class="material-icons">contact_phone</i>Clientes | Empresas</div>
+            <div class="collapsible-header"><i class="material-icons">contact_phone</i>Clientes</div>
             <div class="collapsible-body">
                 <ul>
                     <li><a href="">Usuarios</a></li>

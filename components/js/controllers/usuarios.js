@@ -35,6 +35,14 @@ angular.module('usuarioApp', [])
     }
 
 
+    $scope.openEditUser = function(id){
+        $http.get('usuarios/userWithId/' + id).success(function(datos){
+            $scope.usuario = datos;
+        });
+        $('#editUserModal').openModal();
+    }
+
+
     $scope.submitEditForm = function(){
         
     }
