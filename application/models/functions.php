@@ -88,4 +88,13 @@ class Functions extends CI_Model {
         }
 
 
+
+        public function setAngularFile()
+        {
+
+            return self::getActiveNav();
+
+        }
+
+
 }

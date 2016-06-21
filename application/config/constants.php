@@ -90,4 +90,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('CSS_PATH')  OR define('CSS_PATH', 'components/css/');
 defined('JS_PATH')  OR define('JS_PATH', 'components/js/');
 defined('IMAGES_PATH')  OR define('IMAGES_PATH', 'components/images/');
-defined('ANGULARJS_PATH')  OR define('ANGULARJS_PATH', 'components/js/controllers/');
+defined('ANGULARJS_PATH')  OR define('ANGULARJS_PATH', 'components/js/angular/');
+defined('ANGULARJSCONTROLLERS_PATH')  OR define('ANGULARJSCONTROLLERS_PATH', 'components/js/controllers/');

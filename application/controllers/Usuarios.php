@@ -18,6 +18,12 @@ class Usuarios extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
+    public function inicio(){
+
+        $this->load->view('usuarios/listado');
+    
+    }
+
     public function allUsers()
     {
         echo json_encode($this->users->getUsers());
@@ -25,10 +31,15 @@ class Usuarios extends CI_Controller {
 
     public function agregar()
     {
-        $this->load->view('includes/header');
-        $this->load->view('includes/left');
+
         $this->load->view('usuarios/agregar');
-        $this->load->view('includes/footer');
+
+    }
+
+    public function editar(){
+
+        $this->load->view('usuarios/editar');
+
     }
 
     public function registrar()
@@ -60,29 +71,7 @@ class Usuarios extends CI_Controller {
         echo json_encode($this->users->getUserWithId($id));
     }
 
-    public function editar(){
 
-        $data = json_decode(file_get_contents("php://input"));
-
-        $id = $data->id_usuario;
-
-        $data = array(
-                'nombre_usuario'    => $data->nombre,
-                'rut_usuario'       => $data->rut,
-                'email_usuario'     => $data->email,
-                'password_usuario'  => $data->rut,
-                'id_perfil'         => $data->perfil,
-                'estado_usuario'    => $data->estado                
-        );
-
-        $result = $this->users->updateUser($data, $id);
-        if($result === true){
-            echo json_encode(array('code' => 1, 'message' => 'Su registro ha sido editado correctamente'));
-        } else {
-            echo json_encode(array('code' => 0, 'message' => 'Hubo un error al editar el registro, intente otra vez'));
-        }
-
-    }
 
 
 }

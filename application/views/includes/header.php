@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>SCSA <?= $this->session->area;?> | Login</title>
+    <title>SCSA <?= $this->session->area;?> | Panel de Control</title>
     <link rel="stylesheet" type="text/css" href="<?=base_url().CSS_PATH;?>materialize.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url().CSS_PATH;?>bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url().CSS_PATH;?>main.css">
@@ -11,9 +11,9 @@
     <script src="<?=base_url().JS_PATH;?>jquery.min.js"></script>
 </head>
 <script>
-    var url_actual = '<?= $this->functions->getActiveNav();?>';
+    var BASE_URL = '<?= $this->functions->getActiveNav();?>';
     $(document).ready(function(){
-        $('#'+url_actual).addClass('activeNav');
+        $('#'+BASE_URL).addClass('activeNav');
         setTimeout(function(){ $('.alerta_error').hide(); }, 3000);
     });
 </script>
@@ -32,12 +32,12 @@
                     </a>
                 </li>
                 <li>
-                    <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Mi Cuenta">
+                    <a class="tooltipped" href="<?= base_url();?>login/mi_cuenta" data-position="bottom" data-delay="50" data-tooltip="Mi Cuenta">
                         <i class="material-icons">perm_identity</i>
                     </a>
                 </li>
                 <li>
-                    <a class="tooltipped" href="<?=base_url();?>login/cerrar_sesion" data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión">
+                    <a class="tooltipped" href="<?= base_url();?>login/cerrar_sesion" data-position="bottom" data-delay="50" data-tooltip="Cerrar Sesión">
                         <i class="material-icons">power_settings_new</i>
                     </a>
                 </li>

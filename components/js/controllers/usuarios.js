@@ -1,6 +1,28 @@
-angular.module('usuarioApp', [])
+angular.module('usuariosApp', ['ngRoute'])
 
-.controller('Usuarios', function($scope, $http){
+.config(function($routeProvider){
+    $routeProvider
+        .when('/', {
+            controller: 'ListadoUsuarios',
+            templateUrl: BASE_URL + '/inicio'
+        })
+        .when('/add', {
+            controller: 'AgregarUsuarios',
+            templateUrl: BASE_URL + '/agregar'
+        })
+        .when('/edit/:id', {
+            controller: 'EditarUsuarios',
+            templateUrl: BASE_URL + '/editar'
+        })
+        .otherwise({
+            controller: 'ListadoUsuarios',
+            templateUrl: BASE_URL + '/inicio'
+        })
+})
+
+
+
+.controller('ListadoUsuarios', function($scope, $http){
 
     $scope.getData = function(){
         $http.get('usuarios/allUsers').success(function(datos){
@@ -9,6 +31,10 @@ angular.module('usuarioApp', [])
     }
 
     $scope.getData();
+
+})
+
+.controller('AgregarUsuarios', function($scope, $http){
 
     $scope.submitAddForm = function(){
 
@@ -20,31 +46,25 @@ angular.module('usuarioApp', [])
         })
         .success(function(data){
             $scope.success = data.message;
-            setTimeout(function(){
-                    $('#addUserModal').closeModal();
-                    $scope.getData();
-                    $scope.success = undefined;
-                    $scope.user = {};
-                }, 2000);
+            setTimeout(function(){ 
+                window.location.href = BASE_URL;
+            }, 3000);
         })
         .error(function(data){
             $scope.error = data.message;
-            $scope.error = undefined;
         });
 
-    }
-
-
-    $scope.openEditUser = function(id){
-        $http.get('usuarios/userWithId/' + id).success(function(datos){
-            $scope.usuario = datos;
-        });
-        $('#editUserModal').openModal();
-    }
-
-
-    $scope.submitEditForm = function(){
-        
     }
 
 })
+
+
+.controller('EditarUsuarios', function($scope, $http){
+    
+})
+
+.controleer('EliminarUsuarios', function($scope, $http){
+    
+})
+
+
