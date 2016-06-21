@@ -66,6 +66,28 @@
     margin-bottom: 0px;
 }
 
+.reveal-animation.ng-enter, .reveal-animation.ng-leave {
+  -webkit-transition:5s linear all;
+  transition:1s linear all;
+}
+
+.reveal-animation.ng-enter {
+  opacity: 0;
+}
+
+.reveal-animation.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.reveal-animation.ng-leave {
+  opacity: 1;
+}
+
+.reveal-animation.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+
 @media (max-width: 1199px) {
     #nav-menu-left {
         display: none !important;

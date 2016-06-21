@@ -1,4 +1,4 @@
-angular.module('usuariosApp', ['ngRoute'])
+angular.module('usuariosApp', ['ngRoute', 'ngAnimate'])
 
 .config(function($routeProvider){
     $routeProvider
@@ -19,8 +19,6 @@ angular.module('usuariosApp', ['ngRoute'])
             templateUrl: BASE_URL + '/inicio'
         })
 })
-
-
 
 .controller('ListadoUsuarios', function($scope, $http){
 
@@ -63,8 +61,26 @@ angular.module('usuariosApp', ['ngRoute'])
     
 })
 
-.controleer('EliminarUsuarios', function($scope, $http){
-    
+.controller('EliminarUsuarios', function($scope, $http){
+
+})
+
+
+.animation('.reveal-animation', function() {
+  return {
+    enter: function(element, done) {
+      element.show('slow', done);
+      return function(){
+        element.stop();
+      }
+    },
+    leave: function(element, done) {
+      element.hide('fast', done)
+      return function() {
+        element.stop();
+      }
+    }
+  }
 })
 
 

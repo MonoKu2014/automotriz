@@ -15,7 +15,7 @@
           </li>
 
 
-          <!--<li class="">
+          <li class="">
             <div class="collapsible-header"><i class="material-icons">credit_card</i>Cotizaciones</div>
             <div class="collapsible-body">
                 <ul>
@@ -84,7 +84,7 @@
                     <li><a href="">Clientes</a></li>
                 </ul>
             </div>
-          </li>-->
+          </li>
         </ul>
     </div>
   <script>
