@@ -66,21 +66,3 @@ angular.module('usuariosApp', ['ngRoute', 'ngAnimate'])
 })
 
 
-.animation('.reveal-animation', function() {
-  return {
-    enter: function(element, done) {
-      element.show('slow', done);
-      return function(){
-        element.stop();
-      }
-    },
-    leave: function(element, done) {
-      element.hide('fast', done)
-      return function() {
-        element.stop();
-      }
-    }
-  }
-})
-
-
